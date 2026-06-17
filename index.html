@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R30 Photo Studio</title>
+  <style>
+    body {font-family: Arial; background: #111; color: white; text-align: center; padding: 20px;}
+   .container {max-width: 500px; margin: auto;}
+    input[type="file"] {margin: 20px; padding: 10px;}
+   .bg-btn {background: gold; color: black; border: none; padding: 12px 20px; margin: 5px; border-radius: 8px; cursor: pointer; font-weight: bold;}
+   .pay-btn {background: #25D366; color: white; padding: 15px 30px; border: none; border-radius: 10px; font-size: 18px; margin-top: 20px; cursor: pointer;}
+    #preview {max-width: 100%; margin-top: 20px; border-radius: 10px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 R30 Photo Studio</h1>
+    <p><b>Change your background and remain same</b></p>
+    <input type="file" id="upload" accept="image/*">
+    <h3>Choose Background:</h3>
+    <button class="bg-btn" onclick="alert('Luxury Hotel selected')">Luxury Hotel</button>
+    <button class="bg-btn" onclick="alert('Beach Sunset selected')">Beach Sunset</button>
+    <button class="bg-btn" onclick="alert('Studio White selected')">Studio White</button>
+    <img id="preview" src="" style="display:none;">
+    <button class="pay-btn" onclick="window.open('https://wa.me/27XXXXXXXXX', '_blank')">Pay R30 - Get HD</button>
+  </div>
+  <script>
+    document.getElementById('upload').onchange = function(e) {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.onload = function(event) {
+        document.getElementById('preview').src = event.target.result;
+        document.getElementById('preview').style.display = 'block';
+      }
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
